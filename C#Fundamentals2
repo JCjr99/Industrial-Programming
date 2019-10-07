@@ -10,12 +10,46 @@ namespace CsharpFundamentals_2
     {
         
 
-        public Node Insert( Node n, int ins)
+        public void Insert( Node root, int ins)
         {
             Node newNode = new Node(ins);
+            Node curr = root;
+            Node prev = curr;
 
-            return n;
+            while (curr != null)
+            {
+                if (ins < curr.value)
+                {
+                    prev = curr;
+                    curr = curr.left;
+                }
+                else if(ins > curr.value)
+                {
+                    prev = curr;
+                    curr = curr.right;
+                }
+            }
+
+            if (ins < prev.value)
+            {
+                prev.left = newNode;
+            }
+            else
+            {
+                prev.right = newNode;
+            }
         } 
+
+        public Boolean search(Node root,int find)
+        {
+            if (root==null)
+            {
+                return false;
+            }
+
+
+            return true;
+        }
         static void Main(string[] args)
         {
 
@@ -25,13 +59,13 @@ namespace CsharpFundamentals_2
     class Node
     {
         public int value;
-        public Node prev;
-        public Node next;
+        public Node left;
+        public Node right;
 
         public Node(int n)
         {
-            this.prev = null;
-            this.next = null;
+            this.left = null;
+            this.right = null;
             this.value = n;
         }
 
