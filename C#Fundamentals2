@@ -40,19 +40,30 @@ namespace CsharpFundamentals_2
             }
         } 
 
-        public Boolean search(Node root,int find)
+        public Boolean search(Node n,int find)
         {
-            if (root==null)
+            if (n == null)
             {
                 return false;
             }
-
-
-            return true;
+            
+            if (n.value == find)
+            {
+                return true;
+            }
+            if (n.val < find)
+            {
+                return search (n.right, find);
+            }
+            else
+            {
+                return search (n.left, find);
+            }
         }
+        
         static void Main(string[] args)
         {
-
+            
         }
     }
 
